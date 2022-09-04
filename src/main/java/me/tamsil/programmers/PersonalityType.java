@@ -5,11 +5,13 @@ import java.util.List;
 
 public class PersonalityType {
 
-    private static List<Point> pointList = new ArrayList<>();
+    private List<Point> pointList = new ArrayList<>();
 
     public static void main(String[] args) {
-        String[] survey = {"AN", "CF", "MJ", "RT", "NA"};
-        int[] choices = {5, 3, 2, 7, 5};
+//        String[] survey = {"AN", "CF", "MJ", "RT", "NA"};
+        String[] survey = {"TR", "RT", "TR"};
+//        int[] choices = {5, 3, 2, 7, 5};
+        int[] choices = {7, 1, 3};
 
         String answer = new PersonalityType().solution(survey, choices);
         System.out.println("answer = " + answer);
@@ -46,27 +48,23 @@ public class PersonalityType {
             }
         }
 
-        for (int i = 1; i < 4; i++) {
-            int maxValue = 0;
+        for (int i = 1; i < 5; i++) {
+            int maxValue = -1;
             String maxStr = "";
-            for (int j = 0; j < pointList.size(); j++) {
-                if (pointList.get(j).type == i) {
-                    if (pointList.get(j).score > maxValue) {
-                        maxStr = pointList.get(j).str;
-                    } else if (pointList.get(j).score == maxValue) {
-                        String str = pointList.get(j).str;
-                        maxStr = (str.compareTo(maxStr) > 0) ? str : maxStr;
-                    }
-                }
-                if (pointList.get(j).type == i && pointList.get(j).score > maxValue) {
-                    maxStr = pointList.get(j).str;
-                } else if (pointList.get(j).type == i && pointList.get(j).score == maxValue) {
 
+            for (int j = 0; j < pointList.size(); j++) {
+                Point thisPoint = pointList.get(j);
+                if (thisPoint.type == i) {
+                    if (thisPoint.score > maxValue) {
+                        maxValue = thisPoint.score;
+                        maxStr = thisPoint.str;
+                    } else if (thisPoint.score == maxValue) {
+                        maxStr = (thisPoint.str.compareTo(maxStr) < 0) ? thisPoint.str : maxStr;
+                    }
                 }
             }
             answerBuilder.append(maxStr);
         }
-
         return answerBuilder.toString();
     }
 
