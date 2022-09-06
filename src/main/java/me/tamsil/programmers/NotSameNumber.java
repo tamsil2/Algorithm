@@ -3,11 +3,11 @@ package me.tamsil.programmers;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution {
+public class NotSameNumber {
     public static void main(String[] args) {
         int[] arr = {1, 1, 3, 3, 0, 1, 1};
-        Solution solution = new Solution();
-        int[] answer = solution.solution(arr);
+        NotSameNumber notSameNumber = new NotSameNumber();
+        int[] answer = notSameNumber.solution(arr);
     }
 
     public int[] solution(int[] arr) {
