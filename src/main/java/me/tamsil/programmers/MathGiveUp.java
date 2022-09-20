@@ -4,8 +4,8 @@ import java.util.*;
 
 public class MathGiveUp {
     public static void main(String[] args) {
-        int[] answers = {1, 2, 3, 4, 5};
-//        int[] answers = {1, 3, 2, 4, 2};
+//        int[] answers = {1, 2, 3, 4, 5};
+        int[] answers = {1, 3, 2, 4, 2};
 
         int[] answer = new MathGiveUp().solution(answers);
         for (int i : answer) {
@@ -36,7 +36,7 @@ public class MathGiveUp {
         }
 
         for (Integer integer : answerMap.keySet()) {
-            if (answerMap.get(integer) == answerMap.values().stream().reduce(0, Integer::max)) {
+            if (answerMap.get(integer).equals(answerMap.values().stream().reduce(0, Integer::max))) {
                 answerList.add(integer);
             }
         }
@@ -45,6 +45,7 @@ public class MathGiveUp {
         for (int i = 0; i < answerList.size(); i++) {
             answer[i] = answerList.get(i);
         }
+        Arrays.sort(answer);
         return answer;
     }
 }
