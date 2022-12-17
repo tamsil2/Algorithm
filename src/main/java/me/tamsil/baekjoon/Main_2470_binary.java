@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class Main_2470 {
+public class Main_2470_binary {
     public static StringBuilder sb = new StringBuilder();
     public static int N;
     public static int[] A;
